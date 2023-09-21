@@ -1,0 +1,73 @@
+@media only screen and (max-width: 600px){
+    /* ItemDisplay*/
+    #resNameDisplay{
+        width: 95%;
+        height: 350px;
+        flex-wrap: nowrap;
+    }
+    #resNameDisplayImg{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    #resNameDisplayContent{
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px;
+        margin: 0px;
+    }
+    #container-div{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* MenuList */
+    #menu-div{
+        width: 90%;
+        
+    }
+    #itemMenu{
+      width: 90%;
+      height: 150px;
+      }
+    #menu-body{
+        width: 55%;
+        padding-left: 15px;
+      }
+}
+/* ItemDisplay*/
+.resNameDisplay{
+    width:65vw;
+    height:20vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+.resNameDisplayImg{
+    width:25%;
+    height:100%;
+}
+.resNameDisplayContent{
+    width:75%;
+    padding-left:30px;
+}
+/* MenuList */
+.menu-body{
+    width:75%;
+    padding-left:30px;
+}
+
+.itemMenu{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60vw;
+    height: 15vh;
+  }

@@ -1,0 +1,117 @@
+@media only screen and (max-width: 600px){
+  #about-div{
+    width: 90%;
+  }
+  #footerAbout{
+    width: 90vw !important;
+  }
+  #signBox{
+    width: 90vw;
+    height: 300px;
+    
+  }
+  #signPage{
+    width: 85vw;
+  }
+}
+html{
+  overflow-x: hidden;
+}
+.page{
+  width:1200px;
+  height: 100vh;
+}
+.signPage{
+  
+  width: 30vw;
+  height: 20vh;
+}
+.body{
+  width: 100vw;
+  height: 100vh;
+}
+.displayFlex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column
+}
+.signBox{
+  width:40vw; 
+  height: 35vh;
+  border: 1px solid black;
+}
+.homeDiv{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.overFlow{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.titleDisplay{
+  display: flex;
+  width: 100%;
+}
+.discription{
+  color: rgba(40,44,63,.45);
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  
+}
+.ratingDisplay{
+  font-size: 12px;
+  padding: 0 5px 0 5px;
+  display: inline-block;
+  background-color: rgb(36, 150, 63);
+  font-family: 'Poppins', sans-serif;
+}
+.footer{
+  width: 100%;
+  height: 40vh;
+ 
+}
+.link{
+  text-decoration: none;
+}
+.nameDisplay{
+  height:35px;
+  width:90%;
+  overflow:hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+.itemImage{
+  width: 40%;
+}
+.bannerDiv{
+  height:80%;
+  width:30%;
+}
+.bannerImg{
+  width:100%;
+  height:100%;
+}
+.about-container{
+  min-height: 80vh;
+  height: auto;
+  width: 100vw;
+}
+.about-div{
+  width: 50%;
+    height: auto;
+    border-radius:18px;
+    
+}
+.about-content{
+  width: 80%;
+}
+#footerAbout{
+  flex-direction:row;
+  width:30%;
+  justify-content:space-evenly;
+  padding-bottom: 90px;
+}

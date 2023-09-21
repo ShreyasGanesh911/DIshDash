@@ -1,0 +1,117 @@
+import React, { useContext, useEffect, useState } from "react";
+import AppContext from "../Context/AppContext";
+import EmptyCart from "./EmptyCart";
+import CartItemDisplay from "./CartItemDisplay";
+import { priceAfterDiscount } from "../Cupon";
+import CartBill from "./CartBill";
+import Modal from "./Modal";
+export default function Cart() {
+  let total = 0;
+  const [items, setItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const context = useContext(AppContext);
+  const { cart, setCart } = context;
+  const {cartCount,setCartCount} = context
+  const checkOut = () => {
+    
+    setShowModal(true);
+  };
+
+  
+  const bill = [
+    { message: "Item Total", type: "1" },
+    { message: "Delivery Fees + GST + Restaurant Charges", type: "2" },
+    { message: "To Pay", type: "3" },
+  ];
+  const [params, setParams] = useState(0);
+  const [totalCost, setTotalCost] = useState(0);
+  const changeCartCount=()=>{
+    const data = JSON.parse(localStorage.getItem("cart"));
+    if (data) 
+        setCartCount(data.length)
+}
+  useEffect(() => {
+    //localStorage.setItem('cart',JSON.stringify(cart))
+    const data = JSON.parse(localStorage.getItem("cart"));
+    console.log("Data is " + data)
+    console.log("Cart . length is   " + cart.length)
+    
+
+    console.log("cart count " + cartCount);
+    if (data) {
+      setCartCount(data.length)
+      setItems(data);
+      //console.log("data set is "+data)
+      //console.log("data" + JSON.stringify(data)+"length"+data.length)
+    }
+  }, [setItems, setParams, total,cart,cartCount,setCartCount]);
+  return (
+    <div
+      className="displayFlex bg-body-tertiary "
+      style={{ height: "auto", minHeight: "80vh", width: "100vw" }}
+    >
+      {cartCount === 0 ? (
+        <EmptyCart />
+      ) : 
+      (
+        <div className="displayFlex bg-white my-5  " style={{ width: "1200px" }}>
+           <div className=' d-flex  my-2 border-bottom' style={{height:"10vh",width:"85%"}}>
+        <div className='d-flex displayFlex  w-50' > 
+            <div className="   fonts"> Item</div>        
+        </div>
+        <div className='d-flex justify-content-center align-items-center w-50 fonts'  >Quantity</div>
+        <div className='d-flex justify-content-center align-items-center w-25 fonts' >Cost</div>
+      </div>
+          {items.map((e) => {
+            {
+              total += e.cost*e.quantity;
+            }
+
+            return (
+              <CartItemDisplay
+                name={e.name}
+                img={e.img}
+                quantity={e.quantity}
+                totalCost={e.cost * e.quantity}
+                function={changeCartCount}
+              />
+            );
+          })}
+
+          <div className="displayFlex " style={{ width: "1200px" }}>
+          {bill.map((e) => {
+            return (
+              <CartBill
+                msg={e.message}
+                cost={totalCost == 0 ? total : totalCost}
+                typeCost={e.type}
+              />
+            );
+          })}
+        </div>
+        <div
+          className="displayFlex  "
+          style={{
+            width: "1200px",
+            display: "flex",
+            alignItems: "end",
+            marginBottom: "5vh",
+          }}
+        >
+          <div className="displayFlex" style={{ width: "43%" }}>
+            {" "}
+            <button
+              type="button"
+              onClick={checkOut}
+              class="btn btn-warning btn-primary btn-lg"
+            >
+              Place Order
+            </button>
+          </div>
+        </div>
+        </div>
+      )}
+    {showModal && <Modal />}
+    </div>
+  );
+}

@@ -1,0 +1,20 @@
+@media only screen and (max-width: 600px){
+    #offer-container{
+        width: 95%;
+    }
+
+    #offer-display-none{
+        display: none ;
+    }
+    #carousel-div{
+        height: 25vh ;
+    }
+}
+.offer-container{
+    width: 85%;
+    height: 30vh;
+}
+.carousel-div{
+    width:95vw;
+    height:40vh;
+}
