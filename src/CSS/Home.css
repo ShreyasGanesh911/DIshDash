@@ -9,6 +9,19 @@
     #carousel-div{
         height: 25vh ;
     }
+    .filterButton{
+        display: none !important;
+    }
+    .searchBar{
+        width: 100% !important;
+        margin-right: 1rem !important;
+        margin-left: 1rem !important;
+        
+    }
+    .filter-div{
+        width: 95% !important;
+        margin: 0px !important;
+    }
 }
 .offer-container{
     width: 85%;
@@ -17,4 +30,21 @@
 .carousel-div{
     width:95vw;
     height:40vh;
+}
+.filter-div{
+    width: 70%;
+    flex-direction: row;
+    justify-content: start;
+    border: 1px solid black;
+    height: 6vh ;
+}
+.searchBar{
+    margin-right: 3rem ;
+    margin-left: 3rem;
+}
+input.middle:focus {
+    outline-width: 0;
+}
+*:focus {
+    outline: none;
 }

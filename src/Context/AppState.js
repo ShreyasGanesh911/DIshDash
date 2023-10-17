@@ -49,7 +49,7 @@ const AppState =(props)=>{
       
     },[setCart])
     return (
-        <AppContext.Provider value={{cart , resturantList,list,resList,displayRes,setCart,cartCount, setCartCount}}>
+        <AppContext.Provider value={{cart ,setResList, resturantList,list,resList,displayRes,setCart,cartCount, setCartCount}}>
       {props.children}
     </AppContext.Provider>
     )
