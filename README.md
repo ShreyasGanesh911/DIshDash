@@ -1,3 +1,6 @@
+# DishDash <br/>
+I used express for building the online food ordering app DishDash. The app is easy to navigate and contains a checkout portion which provides a full user experience. The design is straightforward and responsive.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -6,7 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run both`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
