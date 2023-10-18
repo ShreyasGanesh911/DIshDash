@@ -8,7 +8,7 @@ export default function Signup() {
     setLoading(true)
     setTimeout(()=>{
       setLoading(false)
-    },2500)
+    },2000)
   },[])
   return (
     

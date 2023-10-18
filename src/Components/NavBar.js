@@ -1,7 +1,12 @@
 import React from 'react'
-import {Link,NavLink} from "react-router-dom";
+import {Link,NavLink, useNavigate} from "react-router-dom";
 export default function NavBar() {
-  
+  const navigate = useNavigate()
+  const logout=(e)=>{
+    e.preventDefault()
+    localStorage.clear('user')
+    navigate('/')
+  }
   
   return (
     <>
@@ -20,7 +25,18 @@ export default function NavBar() {
           <NavLink className="nav-link "  to="/about">About</NavLink>
         </li>
         <li className="nav-item mx-3">
-          {localStorage.getItem('user')?<NavLink className="nav-link mx-3" to="/cart"><i className="fa-regular fa-user"></i>Account</NavLink>:<NavLink className="nav-link" to="/login"><i className="fa-regular fa-user "></i> Login</NavLink>}
+          {localStorage.getItem('user')?
+           <div class="dropdown">
+          <a class="btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <i className="fa-regular fa-user"></i> Account
+  </a>
+
+  <ul class="dropdown-menu">
+    <li><Link class="dropdown-item" to='/profile'>Profile</Link></li>
+    <li><Link class="dropdown-item" to="/orders">Orders</Link></li>
+    <li><button class="dropdown-item" onClick={logout}>Logout</button></li>
+  </ul>
+</div>:<NavLink className="nav-link" to="/login"><i className="fa-regular fa-user "></i> Login</NavLink>}
         </li>
         <li className="nav-item mx-3 ">
           <NavLink className="nav-link "  to="/cart"><i className="fa-solid fa-cart-shopping "></i> Cart</NavLink>

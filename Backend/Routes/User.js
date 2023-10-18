@@ -24,36 +24,37 @@ router.post("/login",async(req,res)=>{
             else{
                 res.json({
                     success:false,
-                    message:"Incorrect cred"
+                    message:"Incorrect Password"
                 })
             }
 
         }
     }catch(e){
-        res.status(404).json({message:"Error in loggin"})
+        res.status(404).json({success:false,message:"Error in loggin"})
     }
 })
 
     //User signUP
 
 router.get("/signup",async(req,res)=>{
-    const user = req.body;
+    const {email,password} = req.body;
     try{
-        const find = await User.find({email:user.email})
-        if(find){
+        let find = await User.findOne({email:email})
+        if(find!=null){
             res.json({
                 success:false,
-                message:"User exists try another account!"
+                message:"User exists try another account!",
+                accout:find
             })
         }
         else{
             await User.create({
-                email:user.email,
-                password:user.password
+                email:email,
+                password:password
             })
             res.json({
                 success:true,
-                email:user.email,
+                email:email
         
             })
         }

@@ -10,6 +10,8 @@ import Login from './Components/Login';
 import Footer from './Components/Footer';
 import ItemDisplay from './Components/ItemDisplay';
 import About from './Components/About';
+import OrderPage from './Components/OrderPage';
+import Profile from './Components/Profile';
 function App() {
   return (
     <>
@@ -23,7 +25,8 @@ function App() {
           <Route element={<Signup/>} path='/signup'></Route>
           <Route element={<Login/>} path='/login'></Route>
           <Route element={<ItemDisplay/>} path='/menu'></Route>
-          <Route></Route>
+          <Route element={<OrderPage/>} path="/orders"></Route>
+          <Route element={<Profile/>} path="/profile"></Route>
         </Routes>
       </BrowserRouter>
       <Footer/>
