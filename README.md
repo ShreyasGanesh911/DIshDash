@@ -1,7 +1,26 @@
 # DishDash <br/>
 I used express for building the online food ordering app DishDash. The app is easy to navigate and contains a checkout portion which provides a full user experience. The design is straightforward and responsive.
 
-# Getting Started with Create React App
+Test Login credentials <br/>
+  Email: dishDashIsNow@gmail.com <br/>
+  Password: 123456789
+  <br/>
+# About the app
+
+Home Page
+![Screen Shot 2023-10-22 at 22 08 54](https://github.com/ShreyasGanesh911/DishDash/assets/127442299/00ec5d08-6820-4dcb-a82c-9a43d250fbbd)
+<br/>
+
+Food Section
+![Screen Shot 2023-10-22 at 22 09 33](https://github.com/ShreyasGanesh911/DishDash/assets/127442299/f673f808-43b8-4c5c-8192-afbbecb0bd46)
+
+<br/>
+cart Section
+
+![Screen Shot 2023-10-22 at 22 09 14](https://github.com/ShreyasGanesh911/DishDash/assets/127442299/430d9082-2bb7-4c7f-96ce-fb18f510bedc)
+
+
+# Getting Started with Create React App 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
