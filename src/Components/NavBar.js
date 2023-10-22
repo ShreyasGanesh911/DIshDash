@@ -4,7 +4,7 @@ export default function NavBar() {
   const navigate = useNavigate()
   const logout=(e)=>{
     e.preventDefault()
-    localStorage.clear('user')
+    localStorage.removeItem('user')
     navigate('/')
   }
   

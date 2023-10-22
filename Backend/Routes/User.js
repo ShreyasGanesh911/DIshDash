@@ -5,6 +5,7 @@ const resturant = require("../Schema/CartSchema")
 const ResturantMod = require("../Schema/ResturantSchema")
 const resName = require('../Schema/ResName')
 const Auth = require('../MiddleWare/Authentication')
+const Cdate = new Date()
         //userLogin
 router.post("/login",async(req,res)=>{
     const user = req.body;
@@ -13,7 +14,7 @@ router.post("/login",async(req,res)=>{
         if(find==null){
             res.json({
                 success:false,
-                message:"User doesnt exists try another account!"
+                message:"User doesn't exists try another account!"
             })
         }
         else{
@@ -36,34 +37,55 @@ router.post("/login",async(req,res)=>{
 
     //User signUP
 
-router.get("/signup",async(req,res)=>{
-    const {email,password} = req.body;
+router.post("/signup",async(req,res)=>{
+    const {email,password,phone,name} = req.body;
     try{
-        let find = await User.findOne({email:email})
-        if(find!=null){
-            res.json({
-                success:false,
-                message:"User exists try another account!",
-                accout:find
-            })
+        const find = await User.findOne({email:email})
+        const find2 = await User.findOne({phone:phone})
+
+        if(find || find2){
+            if(find)
+                return res.json({success:false,message:"Email address is already used, try another one"})
+            else
+                return res.json({success:false,message:"Looks like this phone number is already used"})
         }
         else{
-            await User.create({
+            const user = await User.create({
                 email:email,
-                password:password
+                phone:phone,
+                password:password,
+                date:String(Cdate.getDate()) +"/"+String(Cdate.getMonth())+"/"+String(Cdate.getFullYear()),
+                name:name
             })
-            res.json({
+            res.status(200).json({
                 success:true,
-                email:email
-        
+                message:'user created',
+                id: user._id
             })
         }
+        
+        console.log('hello there done with the code')
     }catch(e){
-        console.log(e)
+        res.json(e)
     }
     
 })
-        // About user
+router.get('/aboutUser',async(req,res)=>{
+    
+    try{
+        const {id} = req.query
+    let user = await User.findById(id)
+    //console.log(user)
+    if(user===null){
+        return res.status(500).json({success:false,message:"User not found"})
+    }
+    const {email,phone,date,name} = user
+    res.status(200).json({email:email,phone:phone,date:date,name:name})
+    }catch(e){
+        res.json({success:false,e})
+    }
+})
+        // Menu
 router.get("/menu",async(req,res)=>{
     try{
         //const data = req.header('authToken')
