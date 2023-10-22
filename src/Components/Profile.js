@@ -23,13 +23,16 @@ export default function Profile() {
      
      <div className=' about-container displayFlex '>
             <div className='about-div border displayFlex bg-dark text-white' id='about-div' >
-           <div className='displayFlex my-4 '>  <h3 className=''>User Profile</h3></div>
-           <div className='about-content fonts '>
+           <div className='displayFlex my-4 '>  <h3 className=''>{data.name}'s Profile</h3></div>
+           <div className='about-content  '>
            <label htmlFor="name">Name</label>
             <h6  className='border-bottom'>{data.name}</h6>
             <br />
             <label htmlFor="phone">Phone Number*</label>
             <h6 className='border-bottom'>+91 {data.phone}</h6>
+            <br />
+            <label htmlFor="phone">Email*</label>
+            <h6 className='border-bottom'>{data.email}</h6>
             <br />
             <label htmlFor="password">Joined at </label>
             <h6 className='border-bottom'>{data.date}</h6>

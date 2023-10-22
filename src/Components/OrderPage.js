@@ -53,11 +53,11 @@ export default function OrderPage() {
             <div className='about-div border displayFlex bg-dark text-white' id='about-div' >
            <div className='displayFlex my-4 '>  <h3 className=''>Order History</h3></div>
            <div className='about-content fonts '>
-           {food.map((e)=>{
+           {/*food.map((e)=>{
             sum= sum + e.cost
             return <h6>{e.name} x {e.quantity}</h6>
-           })}
-           <h6 className='border-top'>Order total : {sum}</h6>
+           })*/}
+           <h1 className='border-top'>Coming Soon</h1>
             <h4 className='text-center'>⚠️ Disclaimer ⚠️</h4>
             <h6 className='text-center'> The content provided here is intended for educational and informational purposes only.</h6>
             <h5 className='text-center  my-3'>Made with ❤️ by me</h5>

@@ -27,7 +27,7 @@ export default function Signup() {
         "Content-Type": "application/json",
         
       },
-      body: JSON.stringify({ email:form.email, password:form.password,phone:Number(form.password),name:form.name }),
+      body: JSON.stringify({ email:form.email, password:form.password,phone:Number(form.phone),name:form.name.charAt(0).toUpperCase() + form.name.slice(1,form.name.length) }),
       })
       const user = await data.json()
       console.log(user)
@@ -67,7 +67,7 @@ export default function Signup() {
     setLoading(true)
     setTimeout(()=>{
       setLoading(false)
-    },50)
+    },1000)
   },[])
   return (
     
